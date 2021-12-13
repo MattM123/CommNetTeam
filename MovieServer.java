@@ -18,7 +18,7 @@ import java.net.SocketTimeoutException;
 public class MovieServer {
 
     private static final int datagramSize = 5000;
-    private static final String fileLocation = "C:\\SWANH160x33\\";
+    private static final String fileLocation = "C:\\Users\\mattm\\Desktop\\commNetProject\\Segments\\";
     public static void main(String argv[]) throws Exception {
         
         //handle 0 or 1 input of argv[1]; default is verbose mode
@@ -59,7 +59,7 @@ public class MovieServer {
                     File f = new File(fileLocation + String.format("%05d", datum.getSegment()) + ".txt");
                     f.setReadOnly();
                     String frameText = "";
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF-16"));  
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF-8"));  
                     for (int i = 0; i < 33 * datum.getFrameNumber(); i++) {
                         reader.readLine();
                     }
